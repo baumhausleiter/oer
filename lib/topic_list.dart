@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_project/page_home.dart';
 
 import 'topic_models.dart';
 
@@ -87,15 +88,28 @@ class _TopicList extends State<TopicList> {
       Center(
         child: Stack(
           children: [
-            Container(
-                width: 80.0,
-                height: 80.0,
-                decoration: const BoxDecoration(
-                  color: Colors.orange,
-                  shape: BoxShape.circle,
-                )
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyHomePage(title: "title")),
+                );
+              },
+              child: Ink(
+                  width: 80.0,
+                  height: 80.0,
+                  decoration: const BoxDecoration(
+                    color: Colors.orange,
+                    shape: BoxShape.circle,
+                  )
+              ),
             ),
-            Text("sdf")
+            Positioned.fill(
+              child: Align(
+                  alignment: Alignment.center,
+                  child: Text("$starCount/$starCountMax")
+              ),
+            ),
           ],
         ),
       );
